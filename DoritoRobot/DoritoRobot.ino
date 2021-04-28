@@ -7,7 +7,6 @@
 #define potInputL 8
 #define potInputB 9
 /*
-TODO: Write code for the movement of robot
 TODO: Learn how to communicate with REV spark MAX
 TODO: Take potentiometer input and make it pwm signal
  
