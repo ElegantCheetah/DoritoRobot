@@ -6,6 +6,11 @@
 #define potInputR 7
 #define potInputL 8
 #define potInputB 9
+
+//Servo Initialization here:
+Servo rightMotorCont;
+Servo leftMotorCont;
+
 /*
 TODO: Learn how to communicate with REV spark MAX
 TODO: Take potentiometer input and make it pwm signal
@@ -22,19 +27,16 @@ Use servo commands
 Map 0-1023 to 0-180 for motor controllers
 */
 void setup() {
-  pinMode(rightMotor, OUTPUT); //Right motor is setup to be an output
-  pinMode(leftMotor, OUTPUT); //Left motor is setup to be an output
-  pinMode(potInputR, INPUT); //Potentiometers are set as inputs
+  //Setting the pins to be inputs and outputs
+  pinMode(rightMotor, OUTPUT); 
+  pinMode(leftMotor, OUTPUT); 
+  pinMode(potInputR, INPUT); 
   pinMode(potInputL, INPUT);
   pinMode(potInputB, INPUT);
 
-  //Servo Initialization here:
-  Servo rightMotor;
-  Servo leftMotor;
-
   //Attaching servo's to the right pin
-  rightMotor.attach(rightMotor);
-  leftMotor.attach(leftMotor);
+  rightMotorCont.attach(rightMotor);
+  leftMotorCont.attach(leftMotor);
 }
 
 void loop() {
@@ -45,7 +47,7 @@ void loop() {
   potL = map(analogRead(potInputL),0,1023,0,180);
 
   //Sending pwm signal to both motors
-  rightMotor.write(potR);
-  leftMotor.write(potL);
+  rightMotorCont.write(potR);
+  leftMotorCont.write(potL);
 
 }
