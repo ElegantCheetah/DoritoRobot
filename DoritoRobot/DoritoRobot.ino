@@ -37,12 +37,14 @@ void setup() {
   //Attaching servo's to the right pin
   rightMotorCont.attach(rightMotor);
   leftMotorCont.attach(leftMotor);
+
+  //Variable initialization here
+  int potR;
+  int potL;
 }
 
 void loop() {
   //Mapping the values from potentiometer from 0-1023 to 0-180
-  int potR;
-  int potL;
   potR = map(analogRead(potInputR),0,1023,0,180);
   potL = map(analogRead(potInputL),0,1023,0,180);
 
